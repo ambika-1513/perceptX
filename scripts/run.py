@@ -8,10 +8,12 @@ def main():
     parser = argparse.ArgumentParser(description="PerceptX Pipeline")
     parser.add_argument("--video", type=str, required=True)
     parser.add_argument("--device", type=str, default="cuda")
+    parser.add_argument("--model", type=str, default="yolov8s.pt")
+    parser.add_argument("--confidence", type=float, default=0.4)
     parser.add_argument("--segment", action="store_true")
     parser.add_argument("--sam-checkpoint", type=str, default="sam_vit_b_01ec64.pth")
     args = parser.parse_args()
-    detector = Detector(device=args.device)
+    detector = Detector(model_path=args.model, confidence=args.confidence, device=args.device)
 
     segmentor = None
     if args.segment:
