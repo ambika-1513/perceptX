@@ -1,8 +1,10 @@
 import supervision as sv
 
 class Tracker:
-    def __init__(self, frame_rate =30, track_buffer =30): #keep a lost track alive for 30 frames before deleting it
-        self.tracker = sv.ByteTrack(frame_rate = frame_rate, track_buffer = track_buffer)
+    def __init__(self): 
+        self.tracker = sv.ByteTracker(
+            minimum_matching_threshold=0.8,
+        )
     def update(self, detections):
         if len(detections) == 0:
             return detections
