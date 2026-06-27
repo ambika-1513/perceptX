@@ -1,0 +1,6 @@
+pyproject.toml
+perceptx.egg-info/PKG-INFO
+perceptx.egg-info/SOURCES.txt
+perceptx.egg-info/dependency_links.txt
+perceptx.egg-info/requires.txt
+perceptx.egg-info/top_level.txt

@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: perceptx
+Version: 0.1.0
+Summary: Multi-object detection, segmentation and tracking for ADAS
+Requires-Python: >=3.10
+Requires-Dist: ultralytics>=8.2.0
+Requires-Dist: supervision>=0.21.0
+Requires-Dist: opencv-python>=4.9.0
+Requires-Dist: torch>=2.2.0
+Requires-Dist: torchvision>=0.17.0
+Requires-Dist: numpy>=1.26.0
+Requires-Dist: segment-anything @ git+https://github.com/facebookresearch/segment-anything.git
