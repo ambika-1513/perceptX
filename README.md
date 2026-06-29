@@ -28,6 +28,25 @@ Video Frame
 Annotated Output Video
 ```
 
+## Demo
+
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/f71e790d-1db4-41bb-a766-fb4dbecb32b0" width="700" controls></video>
+</p>
+
+*20-second clip — bounding boxes (YOLOv8), persistent track IDs (ByteTrack), and segmentation masks (SAM) overlaid on real dashcam footage.*
+
+> 🎥 [Full 5-minute output video](https://drive.google.com/file/d/1dBlqbxjJFIQRakYPcRGPwWaQijI59lVV/view?usp=sharing) 
+
+
+
+
+
+<!--
+If the video tag above doesn't render for some reason, use a GIF instead:
+<img src="assets/demo.gif" width="700" alt="PerceptX demo">
+-->
+
 ## Why this matters for ADAS
 
 - **Detection alone isn't enough** — a car behind a truck briefly disappears and reappears. Without tracking, the system thinks it's a new car every time.
@@ -52,8 +71,8 @@ perceptx/
 ## Setup
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/perceptx.git
-cd perceptx
+git clone https://github.com/ambika-1513/perceptX.git
+cd perceptX
 python -m venv venv
 venv\Scripts\activate  # Windows
 pip install -e .
@@ -92,6 +111,17 @@ No local GPU needed. Open `PerceptX_Colab.ipynb` in Colab — it handles everyth
 | Detection | YOLOv8s | ~22MB | Auto-downloaded |
 | Segmentation | SAM ViT-B | ~375MB | Download via Colab |
 | Tracking | ByteTrack | — | Built into supervision |
+
+## Performance
+
+Measured on [GPU name, e.g. Colab T4]:
+
+| Mode | FPS | Notes |
+|------|-----|-------|
+| Detection + Tracking | ~XX FPS | YOLOv8s, 640px input |
+| Full pipeline (+ SAM) | ~XX FPS | SAM is the bottleneck — segmentation adds the most latency |
+
+> Replace the XX values with your actual benchmark — run `run.py` on a fixed clip and time it (e.g. `frames / total_seconds`), or log it directly inside `pipeline.py`.
 
 ## Detected Classes
 
